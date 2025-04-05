@@ -6,6 +6,7 @@ class StudentProvider with ChangeNotifier{
   List<Students> _students = [];
 
   List<Students> get students => _students;
+
   void addStudent(Students students) {
     _students.add(students);
     notifyListeners();
