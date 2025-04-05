@@ -12,7 +12,11 @@ class StudentTile extends StatelessWidget {
       child: ListTile(
         title: Text(student.name),
         subtitle: Text('Age: ${student.age} | Score: ${student.score}'),
-        trailing: Text('Grade: ${student.getGreade()}'),
+        trailing: Text('Grade: ${student.getGreade()}',
+          style: TextStyle(
+              fontSize: 20,
+              color: Colors.red),
+        ),
       ),
     );
   }
