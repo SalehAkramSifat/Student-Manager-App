@@ -1,14 +1,13 @@
 import 'package:flutter/cupertino.dart';
-import 'package:provider/provider.dart';
-import 'package:student_manager_app/model/student_model.dart';
+import '../model/student_model.dart';
 
-class StudentProvider with ChangeNotifier{
-  List<Students> _students = [];
+class StudentProvider with ChangeNotifier {
+  List <Students> _students =[];
 
-  List<Students> get students => _students;
+  List<Students> get student => _students;
 
-  void addStudent(Students students) {
-    _students.add(students);
+  void addStudent(Students student){
+    _students.add(student);
     notifyListeners();
   }
 }
