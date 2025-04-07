@@ -1,23 +1,20 @@
 import 'package:flutter/material.dart';
-import '../model/student_model.dart';
+import 'package:student_manager_app/model/student_model.dart';
 
-class StudentTile extends StatelessWidget {
-  final Students student;
-  const StudentTile({super.key, required this.student});
+class StudentTile extends StatelessWidget{
+  final Students stu;
+  const StudentTile({super.key, required this.stu});
 
   @override
   Widget build(BuildContext context) {
     return Card(
-      margin: const EdgeInsets.symmetric(vertical: 4),
+      margin: EdgeInsets.all(15),
       child: ListTile(
-        title: Text(student.name),
-        subtitle: Text('Age: ${student.age} | Score: ${student.score}'),
-        trailing: Text('Grade: ${student.getGreade()}',
-          style: TextStyle(
-              fontSize: 20,
-              color: Colors.red),
-        ),
+        title: Text('Name: ${stu.name}'),
+        subtitle: Text('Age: ${stu.age}| Score: ${stu.score}'),
+        trailing: Text('Grade: ${stu.getGrade()}'),
       ),
     );
   }
+
 }
