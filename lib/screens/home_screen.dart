@@ -1,11 +1,12 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:student_manager_app/model/student_model.dart';
-import '../provider/student_provider.dart';
-import '../widget/student_tile.dart';
+import 'package:student_manager_app/provider/student_provider.dart';
+import 'package:student_manager_app/widget/student_tile.dart';
 
 class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
+
   @override
   _HomeScreenState createState() => _HomeScreenState();
 }
@@ -15,24 +16,25 @@ class _HomeScreenState extends State<HomeScreen> {
   TextEditingController ageCntrl = TextEditingController();
   TextEditingController scoreCntrl = TextEditingController();
 
-  void _addStudent() {
+  void _addStudent(){
     final name = nameCntrl.text;
     final age = int.tryParse(ageCntrl.text) ?? 0;
     final score = double.tryParse(scoreCntrl.text) ?? 0.0;
 
-    if (name.isNotEmpty && age > 0 && score >= 0) {
+    if(name.isNotEmpty && age > 0 && score > 0){
       final newPost = Students(name: name, age: age, score: score);
-      Provider.of<StudentProvider>(context, listen: false).addStudent(newPost);
-
+      Provider.of<StudentProvider>(context,listen: false).addStudent(newPost);
       nameCntrl.clear();
       ageCntrl.clear();
       scoreCntrl.clear();
     }
   }
 
+
+
   @override
   Widget build(BuildContext context) {
-    final students = Provider.of<StudentProvider>(context).students;
+    final students = Provider.of<StudentProvider>(context).student;
 
     return Scaffold(
       appBar: AppBar(
@@ -77,13 +79,13 @@ class _HomeScreenState extends State<HomeScreen> {
             SizedBox(height: 20),
             Text("Student's List"),
             Expanded(
-              child: ListView.builder(
+              child:ListView.builder(
                 itemCount: students.length,
-                itemBuilder: (context, index) {
-                  return StudentTile(student: students[index]);
+                itemBuilder: (context, index){
+                  return StudentTile(stu: students[index]);
                 },
-              ),
-            ),
+              )
+            )
           ],
         ),
       ),
