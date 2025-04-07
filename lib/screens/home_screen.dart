@@ -30,8 +30,6 @@ class _HomeScreenState extends State<HomeScreen> {
     }
   }
 
-
-
   @override
   Widget build(BuildContext context) {
     final students = Provider.of<StudentProvider>(context).student;
